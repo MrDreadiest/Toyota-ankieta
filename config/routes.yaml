@@ -1,0 +1,3 @@
+#survey:
+#  type: rest
+#  resource: App\Controller\SurveyController

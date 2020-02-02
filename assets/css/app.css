@@ -1,0 +1,646 @@
+@font-face {
+  font-family: "Toyota Display";
+  src: url("../fonts/ToyotaDisplay-Regular.woff2") format("woff2"), url("../fonts/ToyotaDisplay-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Toyota Text";
+  src: url("../fonts/ToyotaText-Regular.woff2") format("woff2"), url("../fonts/ToyotaText-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Toyota Text";
+  src: url("../fonts/ToyotaText-BoldItalic.woff2") format("woff2"), url("../fonts/ToyotaText-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Toyota Text";
+  src: url("../fonts/ToyotaText-Bold.woff2") format("woff2"), url("../fonts/ToyotaText-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Toyota Text";
+  src: url("../fonts/ToyotaText-Italic.woff2") format("woff2"), url("../fonts/ToyotaText-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Toyota Display";
+  src: url("../fonts/ToyotaDisplay-Bold.woff2") format("woff2"), url("../fonts/ToyotaDisplay-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+html {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  background-image: url(../images/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#content {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.logoLiveChat {
+  position: absolute;
+  background-image: url(../images/logo_Livechat.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 13px;
+  left: 16px;
+}
+
+.logoToyota {
+  position: absolute;
+  background-image: url(../images/toyka.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 0;
+  right: 26px;
+}
+
+.spinner {
+  background: url(../images/spinner.png) no-repeat;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  transform-origin: 50% 50%;
+  animation: 2s mymove infinite linear;
+  position: absolute;
+  z-index: 10;
+}
+@keyframes mymove {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.survey-component,
+.send-opinion,
+.welcome {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+.survey-component .survey,
+.send-opinion .survey,
+.welcome .survey {
+  text-align: center;
+  font-family: "Toyota Display";
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  height: 80%;
+  justify-content: center;
+  padding: 10px 25px 10px 25px;
+  align-items: center;
+  width: 100%;
+  color: #093d5d;
+}
+.survey-component .survey.goodbye, .survey-component .survey.expired,
+.send-opinion .survey.goodbye,
+.send-opinion .survey.expired,
+.welcome .survey.goodbye,
+.welcome .survey.expired {
+  color: #093d5d;
+  width: 75%;
+}
+.survey-component .survey.goodbye p, .survey-component .survey.expired p,
+.send-opinion .survey.goodbye p,
+.send-opinion .survey.expired p,
+.welcome .survey.goodbye p,
+.welcome .survey.expired p {
+  padding: 20px;
+}
+.survey-component .survey.goodbye p span, .survey-component .survey.expired p span,
+.send-opinion .survey.goodbye p span,
+.send-opinion .survey.expired p span,
+.welcome .survey.goodbye p span,
+.welcome .survey.expired p span {
+  font-weight: bold;
+}
+.survey-component .survey p,
+.send-opinion .survey p,
+.welcome .survey p {
+  margin: 0;
+  color: #093d5d;
+}
+.survey-component .survey p span,
+.send-opinion .survey p span,
+.welcome .survey p span {
+  font-weight: bold;
+}
+.survey-component .survey p span.bold-red,
+.send-opinion .survey p span.bold-red,
+.welcome .survey p span.bold-red {
+  color: red;
+}
+.survey-component .survey ul,
+.send-opinion .survey ul,
+.welcome .survey ul {
+  list-style-type: none;
+  padding-inline-start: unset;
+  margin: 15px 0;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+}
+.survey-component .survey ul::-webkit-scrollbar,
+.send-opinion .survey ul::-webkit-scrollbar,
+.welcome .survey ul::-webkit-scrollbar {
+  width: 2px;
+  background-color: #F5F5F5;
+}
+.survey-component .survey ul::-webkit-scrollbar-thumb,
+.send-opinion .survey ul::-webkit-scrollbar-thumb,
+.welcome .survey ul::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #D62929;
+}
+.survey-component .survey ul::-webkit-scrollbar-track,
+.send-opinion .survey ul::-webkit-scrollbar-track,
+.welcome .survey ul::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.survey-component .survey ul li,
+.send-opinion .survey ul li,
+.welcome .survey ul li {
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+.survey-component .survey ul li label,
+.send-opinion .survey ul li label,
+.welcome .survey ul li label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.survey-component .survey ul li label.label-pick,
+.send-opinion .survey ul li label.label-pick,
+.welcome .survey ul li label.label-pick {
+  background-color: #fff;
+  border-radius: 100px;
+  padding: 6px 20px;
+}
+.survey-component .survey ul li label.label-select select,
+.send-opinion .survey ul li label.label-select select,
+.welcome .survey ul li label.label-select select {
+  background-color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 5px 20px;
+  font-family: "Toyota Text";
+  color: #555555;
+  font-weight: bold;
+  border-width: 2px;
+  border-style: inset;
+  border-radius: 100px;
+  border-color: white;
+  width: 100%;
+  outline: none;
+}
+.survey-component .survey ul li label.label-text,
+.send-opinion .survey ul li label.label-text,
+.welcome .survey ul li label.label-text {
+  border-width: 2px;
+  border-style: inset;
+  border-color: white;
+  border-radius: 100px;
+  font-family: "Toyota Text";
+}
+
+input.input-text {
+  border: 0;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 100px;
+  padding: 5px;
+  outline: none;
+}
+
+.opinion {
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  padding: 5px;
+  margin: 20px 0;
+  outline: none;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.send-opinion .survey p {
+  padding: 0;
+}
+
+button {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+  background: -moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+  background: -webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+  background: -o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+  background: -ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+  background: linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fe1a00", endColorstr="#ce0100",GradientType=0);
+  background-color: #fe1a00;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Toyota Display";
+  font-weight: normal;
+  padding: 5px 50px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #b23e35;
+  border-width: 0;
+  border-radius: 100px;
+  outline: none;
+}
+button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00));
+  background: -moz-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+  background: -webkit-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+  background: -o-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+  background: -ms-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+  background: linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ce0100", endColorstr="#fe1a00", GradientType=0);
+  background-color: #ce0100;
+  border-radius: 100px;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: pointer;
+}
+button:active {
+  position: relative;
+  top: 1px;
+  border-radius: 100px;
+}
+
+[type=radio]:not(:checked),
+[type=radio]:checked {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[type=radio]:not(:checked) + span,
+[type=radio]:checked + span {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  -webkit-transition: 0.28s ease;
+  transition: 0.28s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+[type=radio] + span:before,
+[type=radio] + span:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 4px;
+  width: 13px;
+  height: 13px;
+  z-index: 0;
+  -webkit-transition: 0.28s ease;
+  transition: 0.28s ease;
+}
+
+/* Unchecked styles */
+[type=radio]:not(:checked) + span:before,
+[type=radio]:not(:checked) + span:after,
+[type=radio]:checked + span:before,
+[type=radio]:checked + span:after,
+[type=radio].with-gap:checked + span:before,
+[type=radio].with-gap:checked + span:after {
+  border-radius: 50%;
+}
+
+[type=radio]:not(:checked) + span:before,
+[type=radio]:not(:checked) + span:after {
+  border: 2px solid #093d5d;
+}
+
+[type=radio]:not(:checked) + span:after {
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+/* Checked styles */
+[type=radio]:checked + span:before {
+  border: 2px solid transparent;
+}
+
+[type=radio]:checked + span:after,
+[type=radio].with-gap:checked + span:before,
+[type=radio].with-gap:checked + span:after {
+  border: 2px solid #d04949;
+}
+
+[type=radio]:checked + span:after,
+[type=radio].with-gap:checked + span:after {
+  background-color: #ff270f;
+}
+
+[type=radio]:checked + span:after {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+}
+
+/* Radio With gap */
+[type=radio].with-gap:checked + span:after {
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+}
+
+/* Focused styles */
+[type=radio].tabbed:focus + span:before {
+  -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Disabled Radio With gap */
+[type=radio].with-gap:disabled:checked + span:before {
+  border: 2px solid rgba(0, 0, 0, 0.42);
+}
+
+[type=radio].with-gap:disabled:checked + span:after {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.42);
+}
+
+/* Disabled style */
+[type=radio]:disabled:not(:checked) + span:before,
+[type=radio]:disabled:checked + span:before {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.42);
+}
+
+[type=radio]:disabled + span {
+  color: rgba(0, 0, 0, 0.42);
+}
+
+[type=radio]:disabled:not(:checked) + span:before {
+  border-color: rgba(0, 0, 0, 0.42);
+}
+
+[type=radio]:disabled:checked + span:after {
+  background-color: rgba(0, 0, 0, 0.42);
+  border-color: #093d5d;
+}
+
+html.ios.ipad.tablet.portrait #content {
+  height: 65%;
+  width: 75%;
+  border-radius: 13px;
+  justify-content: space-evenly;
+  padding: 13% 26px 26px 26px;
+}
+html.ios.ipad.tablet.portrait #content .logoToyota {
+  height: 14%;
+  width: 10%;
+}
+html.ios.ipad.tablet.portrait #content .logoLiveChat {
+  height: 11%;
+  width: 18%;
+}
+html.ios.ipad.tablet.portrait #content .survey {
+  padding: 0;
+}
+html.ios.ipad.tablet.portrait #content .survey p {
+  padding: 5px 20px 30px 20px;
+  font-size: 22px;
+}
+html.ios.ipad.tablet.portrait #content .survey p.question {
+  font-size: 22px;
+}
+html.ios.ipad.tablet.portrait #content .survey li {
+  font-size: 20px;
+  max-width: 80%;
+  margin: 19px auto;
+}
+html.ios.ipad.tablet.portrait #content button {
+  font-size: 19px;
+}
+
+html.ios.ipad.tablet.landscape #content {
+  height: 65%;
+  width: 74%;
+  border-radius: 13px;
+  justify-content: space-evenly;
+  padding: 9% 26px 26px 26px;
+}
+html.ios.ipad.tablet.landscape #content .logoToyota {
+  height: 18%;
+  width: 7%;
+}
+html.ios.ipad.tablet.landscape #content .logoLiveChat {
+  height: 15%;
+  width: 15%;
+}
+html.ios.ipad.tablet.landscape #content .survey p .question {
+  font-size: 22px;
+}
+html.ios.ipad.tablet.landscape #content .survey li {
+  font-size: 20px;
+  max-width: 70%;
+  margin: 13px auto;
+}
+html.ios.ipad.tablet.landscape #content button {
+  font-size: 19px;
+}
+
+html.ios.iphone.mobile.landscape #content,
+html.android.mobile.landscape #content {
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  justify-content: space-evenly;
+  padding: 11% 25px 10px 25px;
+}
+html.ios.iphone.mobile.landscape #content .logoToyota,
+html.android.mobile.landscape #content .logoToyota {
+  height: 25%;
+  width: 7%;
+  right: 4px;
+}
+html.ios.iphone.mobile.landscape #content .logoLiveChat,
+html.android.mobile.landscape #content .logoLiveChat {
+  height: 17%;
+  width: 14%;
+  top: 4px;
+  left: 7px;
+}
+html.ios.iphone.mobile.landscape .survey,
+html.android.mobile.landscape .survey {
+  padding: 0;
+}
+html.ios.iphone.mobile.landscape .survey p,
+html.android.mobile.landscape .survey p {
+  font-size: 17px;
+}
+html.ios.iphone.mobile.landscape .survey .question,
+html.android.mobile.landscape .survey .question {
+  font-size: 17px;
+}
+html.ios.iphone.mobile.landscape .survey li,
+html.android.mobile.landscape .survey li {
+  font-size: 15px;
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 6px 10px;
+}
+html.ios.iphone.mobile.landscape button,
+html.android.mobile.landscape button {
+  font-size: 16px;
+}
+
+html.ios.iphone.mobile.portrait #content,
+html.android.mobile.portrait #content {
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  justify-content: space-evenly;
+  padding: 27% 26px 26px 26px;
+}
+html.ios.iphone.mobile.portrait #content .logoToyota,
+html.android.mobile.portrait #content .logoToyota {
+  height: 15%;
+  width: 17%;
+  right: 7px;
+}
+html.ios.iphone.mobile.portrait #content .logoLiveChat,
+html.android.mobile.portrait #content .logoLiveChat {
+  height: 12%;
+  width: 28%;
+  top: 9px;
+  left: 13px;
+}
+html.ios.iphone.mobile.portrait #content .survey,
+html.android.mobile.portrait #content .survey {
+  width: 100%;
+  padding: 0;
+}
+html.ios.iphone.mobile.portrait #content .survey p,
+html.android.mobile.portrait #content .survey p {
+  font-size: 17px;
+  padding: 5px 20px 30px 20px;
+}
+html.ios.iphone.mobile.portrait #content .survey p.question,
+html.android.mobile.portrait #content .survey p.question {
+  font-size: 17px;
+}
+html.ios.iphone.mobile.portrait #content .survey li,
+html.android.mobile.portrait #content .survey li {
+  font-size: 15px;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 6px 10px;
+}
+html.ios.iphone.mobile.portrait .send-opinion .survey p,
+html.android.mobile.portrait .send-opinion .survey p {
+  padding: 5px 0 30px 0;
+}
+html.ios.iphone.mobile.portrait button,
+html.android.mobile.portrait button {
+  font-size: 15px;
+}
+
+html.desktop.landscape #content {
+  height: 65%;
+  width: 63%;
+  border-radius: 13px;
+  justify-content: space-evenly;
+  padding: 7% 26px 26px 26px;
+}
+html.desktop.landscape #content .logoToyota {
+  height: 22%;
+  width: 7%;
+  right: 16px;
+}
+html.desktop.landscape #content .logoLiveChat {
+  height: 15%;
+  width: 15%;
+}
+html.desktop.landscape #content .welcome .survey {
+  width: 75%;
+  font-size: 16px;
+  margin: 0 auto;
+}
+html.desktop.landscape #content .survey-component p {
+  width: 90%;
+}
+html.desktop.landscape #content .survey-component p.question {
+  font-size: 19px;
+}
+html.desktop.landscape #content .survey-component ul li {
+  font-size: 17px;
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 5px;
+}
+html.desktop.landscape #content .send-opinion .survey {
+  width: 80%;
+}
+html.desktop.landscape #content button {
+  font-size: 16px;
+}
+
+/*# sourceMappingURL=app.css.map */

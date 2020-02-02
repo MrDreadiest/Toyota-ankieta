@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{% block title %}Welcome{% endblock %}</title>
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+
+</head>
+<body style="margin: 0; width: 100%; padding: 0;">
+{% block body %}
+
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('rollbar') }}
+    {{ encore_entry_script_tags('vue') }}
+    {{ encore_entry_script_tags('axios') }}
+    {{ encore_entry_script_tags('current-device') }}
+
+{% endblock %}
+</body>
+</html>

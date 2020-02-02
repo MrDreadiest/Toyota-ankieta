@@ -1,0 +1,10 @@
+monolog:
+    handlers:
+        main:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+            channels: ["!event"]
+        rollbar:
+            type: service
+            id: Rollbar\Monolog\Handler\RollbarHandler

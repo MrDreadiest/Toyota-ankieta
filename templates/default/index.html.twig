@@ -1,0 +1,395 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toyota Survey{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div id="content">
+        <div class="logoLiveChat"></div>
+        <div class="logoToyota"></div>
+        <component :is="component"></component>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+
+    <script>
+
+      var _rollbarConfig = {
+        accessToken: "a7ee6de269e641ed814f9ab2a0cdeb37",
+        captureUncaught: true,
+        captureUnhandledRejections: true,
+        payload: {
+          environment: "ankieta"
+        }
+      };
+      // Rollbar Snippet
+      !function(r){var e={};function o(n){if(e[n])return e[n].exports;var t=e[n]={i:n,l:!1,exports:{}};return r[n].call(t.exports,t,t.exports,o),t.l=!0,t.exports}o.m=r,o.c=e,o.d=function(r,e,n){o.o(r,e)||Object.defineProperty(r,e,{enumerable:!0,get:n})},o.r=function(r){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(r,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(r,"__esModule",{value:!0})},o.t=function(r,e){if(1&e&&(r=o(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var t in r)o.d(n,t,function(e){return r[e]}.bind(null,t));return n},o.n=function(r){var e=r&&r.__esModule?function(){return r.default}:function(){return r};return o.d(e,"a",e),e},o.o=function(r,e){return Object.prototype.hasOwnProperty.call(r,e)},o.p="",o(o.s=0)}([function(r,e,o){var n=o(1),t=o(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.13.0/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,e,o){var n=o(2);function t(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}var a=0;function l(r,e){this.options=r,this._rollbarOldOnError=null;var o=a++;this.shimId=function(){return o},"undefined"!=typeof window&&window._rollbarShims&&(window._rollbarShims[o]={handler:e,messages:[]})}var i=o(3),s=function(r,e){return new l(r,e)},d=function(r){return new i(s,r)};function c(r){return t(function(){var e=Array.prototype.slice.call(arguments,0),o={shim:this,method:r,args:e,ts:new Date};window._rollbarShims[this.shimId()].messages.push(o)})}l.prototype.loadFull=function(r,e,o,n,a){var l=!1,i=e.createElement("script"),s=e.getElementsByTagName("script")[0],d=s.parentNode;i.crossOrigin="",i.src=n.rollbarJsUrl,o||(i.async=!0),i.onload=i.onreadystatechange=t(function(){if(!(l||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){i.onload=i.onreadystatechange=null;try{d.removeChild(i)}catch(r){}l=!0,function(){var e;if(void 0===r._rollbarDidLoad){e=new Error("rollbar.js did not load");for(var o,n,t,l,i=0;o=r._rollbarShims[i++];)for(o=o.messages||[];n=o.shift();)for(t=n.args||[],i=0;i<t.length;++i)if("function"==typeof(l=t[i])){l(e);break}}"function"==typeof a&&a(e)}()}}),d.insertBefore(i,s)},l.prototype.wrap=function(r,e,o){try{var n;if(n="function"==typeof e?e:function(){return e||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){o&&"function"==typeof o&&o.apply(this,arguments);try{return r.apply(this,arguments)}catch(o){var e=o;throw e&&("string"==typeof e&&(e=new String(e)),e._rollbarContext=n()||{},e._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=e),e}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(e){return r}};for(var p="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleAnonymousErrors,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),u=0;u<p.length;++u)l.prototype[p[u]]=c(p[u]);r.exports={setupShim:function(r,e){if(r){var o=e.globalAlias||"Rollbar";if("object"==typeof r[o])return r[o];r._rollbarShims={},r._rollbarWrappedError=null;var a=new d(e);return t(function(){e.captureUncaught&&(a._rollbarOldOnError=r.onerror,n.captureUncaughtExceptions(r,a,!0),e.wrapGlobalEventHandlers&&n.wrapGlobals(r,a,!0)),e.captureUnhandledRejections&&n.captureUnhandledRejections(r,a,!0);var t=e.autoInstrument;return!1!==e.enabled&&(void 0===t||!0===t||"object"==typeof t&&t.network)&&r.addEventListener&&(r.addEventListener("load",a.captureLoad.bind(a)),r.addEventListener("DOMContentLoaded",a.captureDomContentLoaded.bind(a))),r[o]=a,a})()}},Rollbar:d}},function(r,e){function o(r,e,o){if(e.hasOwnProperty&&e.hasOwnProperty("addEventListener")){for(var n=e.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(e,o,t){n.call(this,e,r.wrap(o),t)};t._rollbarOldAdd=n,t.belongsToShim=o,e.addEventListener=t;for(var a=e.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,e,o){a.call(this,r,e&&e._rollbar_wrapped||e,o)};l._rollbarOldRemove=a,l.belongsToShim=o,e.removeEventListener=l}}r.exports={captureUncaughtExceptions:function(r,e,o){if(r){var n;if("function"==typeof e._rollbarOldOnError)n=e._rollbarOldOnError;else if(r.onerror){for(n=r.onerror;n._rollbarOldOnError;)n=n._rollbarOldOnError;e._rollbarOldOnError=n}e.handleAnonymousErrors();var t=function(){var o=Array.prototype.slice.call(arguments,0);!function(r,e,o,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null);var t=e.handleUncaughtException.apply(e,n);o&&o.apply(r,n),"anonymous"===t&&(e.anonymousErrorsPending+=1)}(r,e,n,o)};o&&(t._rollbarOldOnError=n),r.onerror=t}},captureUnhandledRejections:function(r,e,o){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var o,n,t;try{o=r.reason}catch(r){o=void 0}try{n=r.promise}catch(r){n="[unhandledrejection] error getting `promise` from event"}try{t=r.detail,!o&&t&&(o=t.reason,n=t.promise)}catch(r){}o||(o="[unhandledrejection] error getting `reason` from event"),e&&e.handleUnhandledRejection&&e.handleUnhandledRejection(o,n)};n.belongsToShim=o,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}},wrapGlobals:function(r,e,n){if(r){var t,a,l="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(t=0;t<l.length;++t)r[a=l[t]]&&r[a].prototype&&o(e,r[a].prototype,n)}}}},function(r,e){function o(r,e){this.impl=r(e,this),this.options=e,function(r){for(var e=function(r){return function(){var e=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,e)}},o="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleAnonymousErrors,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<o.length;n++)r[o[n]]=e(o[n])}(o.prototype)}o.prototype._swapAndProcessMessages=function(r,e){var o,n,t;for(this.impl=r(this.options);o=e.shift();)n=o.method,t=o.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],o.ts]):this[n].apply(this,t));return this},r.exports=o},function(r,e){r.exports=function(r){return function(e){if(!e&&!window._rollbarInitialized){for(var o,n,t=(r=r||{}).globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;o=window._rollbarShims[i++];)n||(n=o.handler),o.handler._swapAndProcessMessages(l,o.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);
+      // End Rollbar Snippet
+
+      var token, surveys, dealers, error;
+
+      {% if survey is defined %}
+          surveys = {{ survey | raw }};
+          console.log(surveys);
+      {% endif %}
+
+      {% if dealers is defined %}
+          dealers = {{ dealers | raw }};
+          console.log(dealers);
+      {% endif %}
+
+      {% if token is defined %}
+          token = '{{ token }}';
+          console.log(token);
+      {% endif %}
+
+      {% if error is defined %}
+          error = {{ error ? error : 0 }};
+          if (error) console.log(error);
+      {% endif %}
+
+        const API_URL = `//${location.host}`;
+
+        const Welcome = {
+          name: 'Welcome',
+          delimiters: ['${', '}'],
+          data() {
+            return {
+              loading: null
+            }
+          },
+          template:
+            '<div class="welcome">' +
+            '<div v-if="loading" class="spinner"></div>' +
+                '<div class="survey"  :class="{ loading: loading }">' +
+                    '<p><span>Szanowni Państwo,</span><br>' +
+                    'serdecznie dziękujemy za kontakt poprzez ' +
+                    '<span class="bold-red">Toyota LiveChat.</span><br>' +
+                    'Będziemy wdzięczni, jeśli zechcą Państwo podzielić się z nami opinią na temat ' +
+                    'efektu naszej komunikacji.</p>' +
+                '</div>' +
+                '<div>' +
+                    '<button @click="startQuiz">Wypełnij krótką ankietę</button>' +
+                '</div>' +
+            '</div>',
+          methods: {
+            startQuiz: function () {
+              this.loading = true;
+
+              axios({
+                method: 'post',
+                url: API_URL + '/survey-start',
+                headers: {
+                  token,
+                }
+              }).then(function (response) {
+                this.loading = false;
+                vm.component = 'Surveys'
+              }, ({response}) => {
+                this.$parent.catchError({response});
+                this.loading = false;
+              })
+            }
+          }
+        };
+
+        const Surveys = {
+          name: 'Surveys',
+          delimiters: ['${', '}'],
+          template: '<div class="survey-component">' +
+                  '<div v-if="loading" class="spinner"></div>' +
+            '<div v-if="currentQuestion" class="survey" :class="{ loading: loading }">' +
+                '<p><span>${currentQuestion.content}</span></p>' +
+                '<ul>' +
+                    '<li v-for="answer in currentQuestion.answers">' +
+
+                        '<label v-if="answer.type === 1" class="label-pick">' +
+                            '<input class="with-gap browser-default" type="radio"  :value="answer" v-model="picked" />' +
+                            '<span></span>' +
+                            '${answer.text}' +
+                        '</label>' +
+
+                        '<label v-if="answer.type === 2" class="label-text" >' +
+                            '<input v-model="message" :placeholder="answer.additional_text" class="input-text">' +
+                        '</label>'  +
+
+                        '<label v-if="answer.type === 3" class="label-select">' +
+                            '<select v-model="selected">' +
+                                '<option v-for="data in dealers" :value="data.id" number>' +
+                                    '${data.dealer_address.city}, ' +
+                                    'ul. ${data.dealer_address.street} ${data.dealer_address.building_number}' +
+                                '</option>' +
+                            '</select>' +
+                        '</label>' +
+                        '<template v-if="answer.type === 4">' +
+                            '<label class="label-pick">' +
+                                '<input class="with-gap browser-default" type="radio"  :value="answer" v-model="picked"/>' +
+                                '<span></span>' +
+                                '${answer.text}' +
+                            '</label>' +
+                            '<textarea  v-if="picked && picked.type === 4" v-model="other" :placeholder="answer.additional_text" type="text" class="opinion" cols="30" rows="5"></textarea>' +
+                        '</template>' +
+                    '</li>' +
+                '</ul>' +
+            '</div>' +
+            '<div>' +
+                '<button @click="prepareSendAnswer()" :disabled="!(picked || selected || allowNext) || loading">Dalej</button>' +
+            '</div>' +
+        '</div>',
+          data() {
+            return {
+              message: null,
+              selected: null,
+              other: null,
+              picked: null,
+              surveys,
+              dealers,
+              currentQuestion: null,
+              answer: {},
+              allowNext: null,
+              loading: null,
+            }
+
+          },
+          created: function() {
+            this.currentQuestion = this.surveys[0];
+            this.clearAnswer();
+          },
+          methods: {
+            clearAnswer: function() {
+              this.picked = null;
+              this.message = null;
+              this.selected = null;
+              this.other = null;
+            },
+            prepareSendAnswer: function() {
+
+              let answerId = this.currentQuestion.answers[0].id;
+              let answerType = this.currentQuestion.answers[0].type;
+
+              if(this.picked) {
+                answerId = this.picked.id;
+                answerType = this.picked.type;
+              }
+
+              let data = {answer_id: answerId};
+
+              const TYPE_ANSWERS = {
+                PICK: 1,
+                PICK_WITH_TEXT: 4,
+                MESSAGE: 2,
+                SELECT: 3
+              };
+
+              switch(answerType) {
+                case TYPE_ANSWERS.PICK: case TYPE_ANSWERS.PICK_WITH_TEXT:
+                  data = {...data, answer_text: this.other};
+                  break;
+
+                case TYPE_ANSWERS.MESSAGE:
+                  data = {...data, answer_text: this.message};
+                  break;
+
+                case TYPE_ANSWERS.SELECT:
+                  data = {...data, dealer_id: this.selected};
+                  break;
+              }
+
+              this.loading = true;
+
+              this.sendAnswer(data)
+                .then((response) => {
+                  this.loading = false;
+                  this.nextQuestion();
+                }, ({response}) => {
+                  this.$parent.catchError({response});
+                  this.loading = false;
+                })
+            },
+            sendAnswer: function({answer_id, answer_text, dealer_id}) {
+              return axios({
+                method: 'post',
+                url: API_URL + '/survey-answer',
+                data: {
+                  answer_id,
+                  answer_text,
+                  dealer_id,
+                },
+                headers: {
+                  token,
+                }
+              });
+            },
+            nextQuestion: function() {
+              let pickAnswer = this.currentQuestion.answers[0];
+              let nextQuestionId = null;
+
+              if (pickAnswer.type === 2 || pickAnswer.type === 3) {
+                nextQuestionId = pickAnswer.next_question_id;
+              } else {
+                nextQuestionId = this.picked.next_question_id;
+              }
+
+              if (!nextQuestionId) {
+                vm.component = 'SendOpinion';
+              } else {
+                this.currentQuestion = this.surveys.find(x => x.id === nextQuestionId);
+                this.clearAnswer();
+                this.checkAnswerType();
+              }
+            },
+            checkAnswerType: function() {
+              this.allowNext = this.currentQuestion.answers[0].type === 2;
+            },
+          }
+        };
+
+        const SendOpinion = {
+          name: 'SendOpinion',
+          data() {
+            return {
+              opinion: null,
+              loading: null,
+            }
+          },
+          template:
+            '<div class="send-opinion">' +
+                    '<div class="survey">' +
+                        '<p>' +
+                            '<span> Serdecznie dziękujemy za wypełnienie ankiety. </span>' +
+                            '<br>' +
+                            'Jeśli chcą Państwo pozostawić dodatkowy komentarz, prosimy wypełnić poniższe pole.<br>' +
+                        '</p>' +
+                        '<textarea v-model="opinion" type="text" class="opinion" cols="30" rows="5"></textarea>' +
+                    '</div>' +
+                    '<div>' +
+                         '<button @click="sendOpinion()"> Wyślij </button>' +
+                    '</div>' +
+                '</div>',
+          methods: {
+            sendOpinion: function () {
+              this.loading = true;
+
+              axios({
+                method: 'post',
+                url: API_URL + '/survey-review',
+                data: {
+                  review: this.opinion,
+                },
+                headers: {
+                  token,
+                }
+              }).then(function (response) {
+                  this.loading = false;
+                  vm.component = 'Goodbye'
+                }, ({response}) => {
+                this.$parent.catchError({response});
+                this.loading = false;
+              })
+            }
+          },
+        };
+
+      const Goodbye = {
+          name: 'Goodbye',
+          template:
+          '<div class="welcome">' +
+            '<div class="survey goodbye">' +
+                '<p><span>Dziękujemy!</span><br>Ankieta została już wypełniona.</p>' +
+            '</div>' +
+          '</div>',
+        };
+
+      const ExpiredError = {
+          name: 'ExpiredError',
+          template:
+                  '<div class="welcome">' +
+                  '<div class="survey expired">' +
+            '<p><span>Przepraszamy!</span><br>Link do ankiety stracił ważność.</p>' +
+            '</div>' +
+                  '</div>',
+        };
+
+      const TokenError = {
+          name: 'TokenError',
+          template:
+                  '<div class="welcome">' +
+                  '<div class="survey expired">' +
+            '<p><span>Przepraszamy!</span><br>Błędny token.</p>' +
+            '</div>' +
+                  '</div>',
+        };
+
+
+        const vm = new Vue({
+          el: '#content',
+          components: {
+            'Welcome': Welcome,
+            'Surveys': Surveys,
+            'SendOpinion': SendOpinion,
+            'Goodbye': Goodbye,
+            'TokenError': TokenError,
+            'ExpiredError': ExpiredError,
+          },
+          data: {
+            component: null,
+          },
+          created: function () {
+            switch(error){
+              case 1:
+                this.component = 'TokenError';
+                break;
+              case 2:
+                this.component = 'Goodbye';
+                break;
+              case 3:
+                this.component = 'SendOpinion';
+                break;
+
+              default:
+                this.component = 'Welcome';
+            }
+          },
+          methods: {
+            catchError({response}){
+              let text;
+              switch(response.status) {
+                case 400:
+                  text = "Błąd walidacji";
+                  break;
+                case 401:
+                  text = "Nieautoryzowany dostęp";
+                  break;
+                case 404:
+                  text = "Błędny token";
+                  break;
+                case 408:
+                  text = "Koniec czasu oczekiwania na żądanie";
+                  break;
+                case 409:
+                  text = "Ankieta zakończona";
+                  break;
+                case 500:
+                  text = "Nieoczekiwany błąd serwera";
+                  break;
+                case 503:
+                  text = "Usługa niedostępna. Spróbuj ponownie później";
+                  break;
+
+                default:
+                  text = "Nieznany błąd";
+              }
+              alert(text);
+            }
+          }
+        });
+
+    </script>
+{% endblock %}

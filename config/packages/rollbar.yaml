@@ -1,0 +1,4 @@
+rollbar:
+  enabled: true
+  access_token: 'f50d47c0e70c43b4b0cc750d15636974'
+  environment: 'ankieta'
